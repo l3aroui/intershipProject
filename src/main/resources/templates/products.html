@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>labelvie</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header"><h3>Our products</h3></div>
+        <div class="card-body">
+            <form method="get" th:action="@{products}">
+                <label>Key word</label>
+                <input type="text" name="keyword" th:value="${keyword}">
+                <button type="submit" class="btn btn-primary">search</button>
+            </form>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Price</th><th>Quantity</th><th>active</th><th>DateAdded</th><th th:if="${#authorization.expression('hasRole(''ADMIN'')')}">Delete</th><th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="prod:${listProducts}">
+                    <td th:text="${prod.id}"></td>
+                    <td th:text="${prod.Name}"></td>
+                    <td th:text="${prod.price}"></td>
+                    <td th:text="${prod.quantity}"></td>
+                    <td th:text="${prod.active}"></td>
+                    <td th:text="${prod.dateAdded}"></td>
+                    <td>
+                        <a onclick="return confirm('are you sure')" class="btn btn-danger" th:href="@{/admin/delete(id=${prod.id},keyword=${keyword},page=${currentPage})}">Delete</a>
+                    </td>
+                    <td>
+                        <a  class="btn btn-success" th:href="@{/admin/editProduct(id=${prod.id})}">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="nav nav-pills">
+                <li th:each="page,status:${pages}">
+                    <a th:class="${status.index==currentPage?'btn btn-info ms-1':'btn btn-outline-info ms-1'}"
+                       th:text="${status.index}"
+                       th:href="@{products(page=${status.index},keyword=${keyword})}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

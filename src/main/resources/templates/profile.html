@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>labelvie</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div style="background-color: #eee;">
+<div layout:fragment="content1" >
+    <h1 class="container align-items-center">User Profile:</h1>
+        <div class="container mt-4">
+            <table class="table">
+                <thead>
+                <tr></tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>Username:</strong></td>
+                    <td th:text="${userInfo.userName}"></td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td th:text="${userInfo.email}"></td>
+                </tr>
+                <tr>
+                    <td><strong>First Name:</strong></td>
+                    <td th:text="${userInfo.FirstName}"></td>
+                </tr>
+                <tr>
+                    <td><strong>Last Name:</strong></td>
+                    <td th:text="${userInfo.LastName}"></td>
+                </tr>
+                <tr>
+                    <td><strong>Birthday:</strong></td>
+                    <td th:text="${userInfo.BirthDay}"></td>
+                </tr>
+                <tr>
+                    <td><strong>password</strong></td>
+                    <td>**********</td>
+                    <td><a th:href="@{/changePassword}">change password</a></td>
+                </tr>
+                </tbody>
+            </table>
+</div>
+</div>
+</div>
+</body>
+</html>

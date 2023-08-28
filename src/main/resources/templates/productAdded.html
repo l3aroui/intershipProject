@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template1"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>labelvie</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1" class="col-md-6 offset-3">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 text-center m-lg-4">
+        <h1 class="text-success">The product has been registered</h1>
+        <div class="d-grid gap-2">
+        <a class="btn btn-primary" th:href="@{/admin/products}">Check Product</a>
+        <a class="btn btn-secondary"th:href="@{/admin/formProducts}">Add Another Product</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
