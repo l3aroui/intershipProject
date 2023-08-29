@@ -31,6 +31,7 @@ public class SecurityConfig{
        //         authorize.requestMatchers("/register").permitAll());
        httpSecurity.exceptionHandling().accessDeniedPage("/notAuthorized");
        httpSecurity.userDetailsService(userDetailServiceImplement);
+
         return httpSecurity.build();
     }
 }

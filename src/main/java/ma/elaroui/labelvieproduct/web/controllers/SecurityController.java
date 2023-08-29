@@ -24,6 +24,8 @@ public class SecurityController {
     public String notAuthorized(){
         return "notAuthorized";
     }
+
+
     @GetMapping("/register")
     public String register(@ModelAttribute AppUser appUser, HttpSession httpSession){
         appUserRepository.save(appUser);
