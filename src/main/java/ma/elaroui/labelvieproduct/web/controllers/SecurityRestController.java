@@ -3,6 +3,7 @@ package ma.elaroui.labelvieproduct.web.controllers;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+
 import ma.elaroui.labelvieproduct.security.entites.AppUser;
 import ma.elaroui.labelvieproduct.security.repositories.AppUserRepository;
 
@@ -47,8 +48,9 @@ public class SecurityRestController {
             this.appUserRepository.save(currentUser);
             return "redirect:/profile";
         }else {
-            httpSession.setAttribute("message","");
+            httpSession.setAttribute("message","Password incorrect");
             return "changePassword";
         }
     }
+
 }

@@ -21,8 +21,8 @@ public class LabelvieProductApplication {
         return args -> {
             accountService.addNewRole("USER");
             accountService.addNewRole("ADMIN");
-            accountService.addNewUser("zakaria","zakaria","elaroui","12345","zakaria5@gmail.com","12345", null);
-            accountService.addNewUser("omar","omar","falougi","123456","omar5@gmail.com","123456", null);
+            accountService.addNewUser("zakaria","zakaria","elaroui","12345","zakaria5@gmail.com","12345");
+            accountService.addNewUser("omar","omar","falougi","123456","omar5@gmail.com","123456");
             accountService.addRoleToUser("zakaria","ADMIN");
             accountService.addRoleToUser("omar","USER");
         };

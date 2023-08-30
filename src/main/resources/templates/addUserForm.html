@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container mt-5">
-    <h1>User Registration</h1>
-    <form method="post" th:action="@{/register}">
+<div layout:fragment="content1">
+<div class="container">
+    <h2>Registration Form</h2>
+        <form th:action="@{/admin/addUser}" method="post" th:object="${AppUser}">
         <div class="mb-3">
             <label for="userName" class="form-label">Username</label>
-            <input type="text" class="form-control" id="userName" name="userName" required>
+            <input type="text" class="form-control" id="userName" name="userName"  required>
         </div>
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
@@ -19,25 +20,27 @@
         </div>
         <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" required>
+            <input type="text" class="form-control" id="lastName" name="lastName"  required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
-            <label for="birthDay" class="form-label">Birthday</label>
-            <input type="date" class="form-control" id="birthDay" name="birthDay" required>
-        </div>
-        <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <label for="password" class="form-label">confirm Password</label>
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div th:if="${session.error}" class="alert alert-danger" role="alert">
+            <p th:text="${session.error}" class="mb-0"></p>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
+
+</div>
+</div>
 </body>
 </html>

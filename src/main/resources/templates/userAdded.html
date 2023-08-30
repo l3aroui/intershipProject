@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>labelvie</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="alert alert-success"><p > the user has been successfully registered.</p></div>
+    <a th:href="@{/admin/addUserForm}" class="btn btn-primary">Add new user</a>
+    <a th:href="@{/}">Home</a>
+</div>
+</body>
+</html>

@@ -28,4 +28,5 @@ public class AppUser {
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<AppUserRole> roles;
+    private boolean locked;
 }

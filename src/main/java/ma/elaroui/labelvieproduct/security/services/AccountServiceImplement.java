@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+
 
 @Service
 @Transactional
@@ -27,7 +27,7 @@ public class AccountServiceImplement implements AccountService {
 
 
     @Override
-    public AppUser addNewUser(String userName, String firstName, String lastName, String password, String email, String confirmPassword, Date birthDay) {
+    public AppUser addNewUser(String userName, String firstName, String lastName, String password, String email, String confirmPassword) {
         AppUser appUser=appUserRepository.findByUserName(userName);
         if (appUser!=null) throw new RuntimeException("this user already exit");
         if (!password.equals(confirmPassword))throw new RuntimeException("password not match");
@@ -37,7 +37,7 @@ public class AccountServiceImplement implements AccountService {
                 .lastName(lastName)
                 .email(email)
                 .password(passwordEncoder.encode(password))
-                .birthDay(birthDay)
+                //.birthDay(birthDay)
                 .build();
          return appUserRepository.save(appUser);
     }
@@ -61,7 +61,6 @@ public class AccountServiceImplement implements AccountService {
         appUser.getRoles().add(appUserRole);
     }
 
-
     @Override
     public void removeRoleFromUser(String username, String roleName) {
         AppUser appUser=appUserRepository.findByUserName(username);
@@ -70,9 +69,10 @@ public class AccountServiceImplement implements AccountService {
         if (appUserRole==null)throw new RuntimeException("this role is not exit");
         appUser.getRoles().remove(appUserRole);
     }
-
     @Override
     public AppUser loadUserByUserName(String userName) {
         return appUserRepository.findByUserName(userName);
     }
+
+
 }

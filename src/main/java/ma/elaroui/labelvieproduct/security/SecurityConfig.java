@@ -23,12 +23,10 @@ public class SecurityConfig{
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
        httpSecurity.formLogin();
-       httpSecurity.rememberMe();
 
+       httpSecurity.rememberMe();
        httpSecurity.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN");
        httpSecurity.authorizeHttpRequests().anyRequest().authenticated();
-       //httpSecurity.authorizeHttpRequests(authorize ->
-       //         authorize.requestMatchers("/register").permitAll());
        httpSecurity.exceptionHandling().accessDeniedPage("/notAuthorized");
        httpSecurity.userDetailsService(userDetailServiceImplement);
 
