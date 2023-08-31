@@ -52,5 +52,4 @@ public class SecurityRestController {
             return "changePassword";
         }
     }
-
 }

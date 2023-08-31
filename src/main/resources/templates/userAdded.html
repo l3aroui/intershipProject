@@ -6,10 +6,18 @@
     <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
 </head>
 <body>
-<div layout:fragment="content1">
-    <div class="alert alert-success"><p > the user has been successfully registered.</p></div>
-    <a th:href="@{/admin/addUserForm}" class="btn btn-primary">Add new user</a>
-    <a th:href="@{/}">Home</a>
+<div layout:fragment="content1" class="col-md-6 offset-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 text-center m-lg-4">
+                <h1 class="text-success">the user has been successfully registered.</h1>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-primary" th:href="@{/admin/addUserForm}">Add Another user</a>
+                    <a class="btn btn-secondary"th:href="@{/}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
