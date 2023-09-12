@@ -13,5 +13,4 @@ public class AppUserRole {
     private Long id;
     @Column(unique = true)
     private String roleName;
-
 }
